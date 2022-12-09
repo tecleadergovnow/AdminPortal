@@ -1,0 +1,33 @@
+//mat form field
+.mat-form-field {
+  background-color: white;
+  font-size: 17px;
+  width: 100%;
+}
+
+.mat-form-field-outline {
+  border-radius: 0;
+
+  .mat-form-field-outline-start {
+
+    border-radius: 0 !important;
+  }
+
+  .mat-form-field-outline-end {
+    border-radius: 0 !important;
+  }
+}
+
+.mat-form-field-wrapper {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.mat-form-field-flex {
+  height: 55px;
+}
+
+.mat-form-field-infix{
+  margin: 0!important;
+  padding-top: 7px!important;
+}

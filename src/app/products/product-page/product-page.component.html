@@ -1,0 +1,15 @@
+<app-main-product-manager *ngIf="validProduct && product"
+  [applications]="data"
+  [activeStatus]="activeStatus"
+  [statuses]="statuses"
+  [statusDataColumns]="statusDataColumns"
+  [product]="product"
+  (productStatusChange)="productStatusChange($event)"
+  (applicationAction)="applicationAction($event)"
+  [loading]="loading"
+>
+</app-main-product-manager>
+
+<h1 *ngIf="!validProduct">
+  Product Not Found
+</h1>

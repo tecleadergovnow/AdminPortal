@@ -1,0 +1,82 @@
+@use '@angular/material' as mat;
+
+$dark-contrast: rgba(black, 0.87);
+$light-contrast: white;
+
+
+$blue-palette: (
+  50: #E3F2FD,
+  100: #BBDEFB,
+  200: #90CAF9,
+  300: #64B5F6,
+  400: #42A5F5,
+  500: #2196F3,
+  600: #1E88E5,
+  700: #1976D2,
+  800: #1565C0,
+  900: #0d376f,
+  A100: #82B1FF,
+  A200: #448AFF,
+  A400: #2979FF,
+  A700: #2962FF,
+  contrast: (
+    50: $dark-contrast,
+    100: $dark-contrast,
+    200: $dark-contrast,
+    300: $dark-contrast,
+    400: $dark-contrast,
+    500: $dark-contrast,
+    600: $light-contrast,
+    700: $light-contrast,
+    800: $light-contrast,
+    900: $light-contrast,
+    A100: $dark-contrast,
+    A200: $light-contrast,
+    A400: $light-contrast,
+    A700: $light-contrast,
+  )
+);
+
+$green-palette: (
+  50: #FAFAFA,
+  100: #F5F5F5,
+  200: #EEEEEE,
+  300: #E0E0E0,
+  400: #BDBDBD,
+  500: #9E9E9E,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  contrast: (
+    50: $dark-contrast,
+    100: $dark-contrast,
+    200: $dark-contrast,
+    300: $dark-contrast,
+    400: $dark-contrast,
+    500: $dark-contrast,
+    600: $light-contrast,
+    700: $light-contrast,
+    800: $light-contrast,
+    900: $light-contrast,
+  )
+);
+$CustomerPortal-primary: mat.define-palette($blue-palette, 600);
+$CustomerPortal-accent: mat.define-palette($green-palette, 300);
+
+$primaryColor:mat.get-color-from-palette($CustomerPortal-primary, 600);
+$primaryContrastColor: mat.get-color-from-palette($CustomerPortal-primary, 600-contrast);
+
+$primaryHighColor:mat.get-color-from-palette($CustomerPortal-primary, 900);
+$primaryHighColorContrast:mat.get-color-from-palette($CustomerPortal-primary, 900-contrast);
+
+$accent100Color:mat.get-color-from-palette($CustomerPortal-accent, 100);
+$accent100Contrast:mat.get-color-from-palette($CustomerPortal-accent, 100-contrast);
+
+
+$primary100Color:mat.get-color-from-palette($CustomerPortal-primary, 100);
+$primary100ColorContrast:mat.get-color-from-palette($CustomerPortal-primary, 100-contrast);
+
+
+$toolbarBackColor:mat.get-color-from-palette($CustomerPortal-primary, 800);
+$toolbarBackColorContrast:mat.get-color-from-palette($CustomerPortal-primary, 800-contrast);

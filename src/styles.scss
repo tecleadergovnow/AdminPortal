@@ -1,0 +1,28 @@
+@use '@angular/material' as mat;
+@use "theme/_palletes" as palletes;
+
+@include mat.core();
+
+@import "theme/index";
+
+$typo: mat.define-typography-config(
+  $font-family:   'Poppins, "Helvetica Neue", sans-serif'
+);
+
+@include mat.core($typo);
+
+
+$CustomerPortal-theme: mat.define-light-theme((
+  color: (
+    primary: palletes.$CustomerPortal-primary,
+    accent: palletes.$CustomerPortal-accent,
+  ),
+  typography:($typo)
+));
+
+@include mat.all-component-themes($CustomerPortal-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Poppin, "Helvetica Neue", sans-serif; }
+
+

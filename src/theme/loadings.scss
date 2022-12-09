@@ -1,0 +1,25 @@
+@use "_palletes" as p;
+
+.loader-backdrop {
+  background-color: p.$primary100Color;
+  color: p.$primary100ColorContrast;
+}
+
+.spinner-wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+
+  .spinner-text {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    align-self: center;
+  }
+
+  ::ng-deep .mat-progress-spinner circle, .mat-spinner circle{
+    stroke: p.$primaryHighColor;
+  }
+}

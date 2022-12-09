@@ -1,0 +1,16 @@
+@use "_palletes" as p;
+app-app-side-bar {
+  .side-bar {
+    padding: 20px;
+    border-radius: 4px;
+    background: p.$primary100Color;
+    color: p.$primary100ColorContrast;
+    width: 300px;
+    h2{
+      color: p.$primaryHighColor;
+    }
+    p{
+      font-size: 17px;
+    }
+  }
+}

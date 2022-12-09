@@ -1,0 +1,548 @@
+{
+  "form": {
+    "name": "get_social_security_card",
+    "helperOn": true,
+    "label": "Edit Social Security card replacement",
+    "submitBtn": "Get Social Security replacement",
+    "steps": [
+      {
+        "name": "general_information",
+        "index": 1,
+        "label": "General information",
+        "description": "Each field is required to receive your social security card from the Social Security Administration. We need this information to ensure your package is accurate and complete.",
+        "blocks": [
+          {
+            "name": "information_in_card",
+            "label": "Information to be shown on card",
+            "fields": [
+              {
+                "name": "gender",
+                "label": "Gender",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": 0,
+                    "label": "Male"
+                  },
+                  {
+                    "value": 1,
+                    "label": "Female"
+                  }
+                ],
+                "value": 0,
+                "required": true,
+                "help": "Please provide the applicant's gender."
+              },
+              {
+                "name": "firstName",
+                "label": "First Name",
+                "type": "textbox",
+                "required": true,
+                "help": "Please enter the applicant's full first name how you want it to appear on the Social Security card."
+              },
+              {
+                "name": "middleName",
+                "label": "Middle Name (optional)",
+                "type": "textbox",
+                "required": false,
+                "help": "Please enter the applicant's full middle name how you want it to appear on the Social Security card."
+              },
+              {
+                "name": "lastName",
+                "label": "Last Name",
+                "type": "textbox",
+                "required": true,
+                "help": "Please enter the applicant's full last name as you want it to appear on the Social Security card."
+              },
+              {
+                "name": "applicantSsn",
+                "label": "Social Security Number",
+                "maxLength": 9,
+                "type": "textbox",
+                "required": true,
+                "help": "Please enter the applicant's Social Security Number as you want it to appear on the Social Security card."
+              },
+              {
+                "name": "differentNameBirth",
+                "label": "Did you have a different name at birth?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": false,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["firstNameBirth", "middleNameBirth", "lastNameBirth"],
+                    "conditions": [
+                      {
+                        "field": "differentNameBirth",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "firstNameBirth",
+                "label": "Birth First Name",
+                "type": "textbox",
+                "visible": false,
+                "help": "Please enter the applicant's full first name at birth how you want it to appear on the Social Security card."
+              },
+              {
+                "name": "middleNameBirth",
+                "label": "Birth Middle Name (optional)",
+                "type": "textbox",
+                "visible": false,
+                "help": "Please enter the applicant's full middle name at birth as you want it to appear on the Social Security card."
+              },
+              {
+                "name": "lastNameBirth",
+                "label": "Birth Last Name",
+                "type": "textbox",
+                "visible": false,
+                "help": "Please enter the applicant's full last name at birth as you want it to appear on the Social Security card."
+              },
+              {
+                "name": "hazDifferentPreviusCardName",
+                "label": "Was your name different on your previous card?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": false,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["previusCardName"],
+                    "conditions": [
+                      {
+                        "field": "hazDifferentPreviusCardName",
+                        "value": true
+                      }
+                    ]
+                  }
+                ],
+                "help": "Did your previous card had a different name than your current one?"
+              },
+              {
+                "name": "previusCardName",
+                "label": "Select previous name",
+                "type": "dropdown",
+                "options":[
+                  {
+                    "label": "Name birth",
+                    "value": "NAME_BIRTH",
+                    "valueAutoFill": [
+                      "firstNameBirth",
+                      "middleNameBirth",
+                      "lastNameBirth"
+                    ]
+                  },
+                  {
+                    "label": "Name",
+                    "value": "NAME",
+                    "valueAutoFill": [
+                      "firstName",
+                      "middleName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "label": "My name is not on this list",
+                    "value": "NOT_IN_LIST"
+                  }
+                ],
+                "help": "Please select the name that was display in your previous card.",
+                "visible": false
+              }
+
+            ]
+          },
+          {
+            "name": "citizen",
+            "label": "Citizen",
+            "fields": [
+              {
+                "name": "usCitizen",
+                "label": "Are you a US Citizen?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": true,
+                "required": true,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["workLegally"],
+                    "conditions": [
+                      {
+                        "field": "usCitizen",
+                        "value": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "workLegally",
+                "label": "Are you allowed to work legally?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": true,
+                "visible": false,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["enterLegally"],
+                    "conditions": [
+                      {
+                        "field": "usCitizen",
+                        "value": false
+                      },
+                      {
+                        "field": "workLegally",
+                        "value": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "enterLegally",
+                "label": "Did you enter the US legally?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": true,
+                "visible": false
+              }
+            ]
+          },
+          {
+            "name": "birth_information",
+            "label": "Birth information",
+            "fields": [
+              {
+                "name": "countryBirth",
+                "label": "Country of Birth",
+                "type": "country",
+                "value": "US",
+                "required": true,
+                "help": "Please select the country where the applicant was born.",
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["stateBirth"],
+                    "conditions": [
+                      {
+                        "field": "countryBirth",
+                        "value": "US"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "stateBirth",
+                "label": "State of Birth",
+                "type": "state",
+                "visible": false,
+                "help": "Please select the state where the applicant was born."
+              },
+              {
+                "name": "cityBirth",
+                "label": "City of Birth",
+                "required": true,
+                "help": "Please select the city where the applicant was born."
+              },
+              {
+                "name": "dateBirth",
+                "label": "Date of Birth",
+                "type": "date",
+                "required": true,
+                "help": "Please select the applicant's date of birth.",
+                "onChange": [
+                  {
+                    "name": "showBlocks",
+                    "blocks": ["relatives"],
+                    "conditions": [
+                      {
+                        "field": "dateBirth",
+                        "value": 17,
+                        "type": "dateLessThan"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "relatives",
+            "label": "Relatives",
+            "visible": false,
+            "fields": [
+              {
+                "name": "motherFirstName",
+                "label": "Mother's First Name",
+                "help": "Please enter the applicant's mother's first name."
+              },
+              {
+                "name": "motherLastName",
+                "label": "Mother's Maiden Name",
+                "help": "Please enter the applicant's mother's maiden name."
+              },
+              {
+                "name": "motherSsnUnknown",
+                "label": "Do you know mother social security number?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": false,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["motherSsnNumber"],
+                    "conditions": [
+                      {
+                        "field": "motherSsnUnknown",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "motherSsnNumber",
+                "label": "Mother Social Security Number",
+                "maxLength": 9,
+                "visible": false,
+                "help": "Please enter the applicant's mother's Social Security Number."
+              },
+              {
+                "name": "fatherFirstName",
+                "label": "Father's First Name",
+                "help": "Please enter the applicant's father's first name."
+              },
+              {
+                "name": "fatherLastName",
+                "label": "Father's Last Name",
+                "help": "Please enter the applicant's father's last name."
+              },
+              {
+                "name": "fatherSsnUnknown",
+                "label": "Do you know father social security number?",
+                "type": "toggle",
+                "options": [
+                  {
+                    "value": true,
+                    "label": "Yes"
+                  },
+                  {
+                    "value": false,
+                    "label": "No"
+                  }
+                ],
+                "value": false,
+                "onChange": [
+                  {
+                    "name": "showFields",
+                    "fields": ["fatherSsnNumber"],
+                    "conditions": [
+                      {
+                        "field": "fatherSsnUnknown",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "fatherSsnNumber",
+                "label": "Father Social Security Number",
+                "maxLength": 9,
+                "visible": false,
+                "help": "Please enter the applicant's father's Social Security Number."
+              }
+            ]
+          },
+          {
+            "name":"mailing_address",
+            "label": "Mailing address where you will receive your SS Card",
+            "fields": [
+              {
+                "name": "street",
+                "label": "Address 1",
+                "required": true,
+                "help": "Street Address. This is where you will receive your package and social security card."
+              },
+              {
+                "name": "no",
+                "label": "Address 2",
+                "help": "Apartment, suite, unit, building, floor, etc. This is where you will receive your package and social security card."
+              },
+              {
+                "name": "city",
+                "label": "City",
+                "required": true,
+                "help":"Please enter the city of the address you would like the social security card mailed to. (Please do not abbreviate). His is where you will receive your package and social security card."
+              },
+              {
+                "name": "state",
+                "label": "State",
+                "type": "state",
+                "required": true,
+                "help": "Please select the state of the address you would like the social security card mailed to. This is where you will receive your package and social security card."
+              },
+              {
+                "name": "zipCode",
+                "label": "Zip Code",
+                "required": true,
+                "help": "Please enter the zip code you would like the social security card mailed to. This is where you will receive your package and social security card."
+              }
+            ]
+          },
+          {
+            "name": "relationship",
+            "label": "Relationship",
+            "fields": [
+              {
+                "name": "relationship",
+                "label": "Relationship with applicant",
+                "type": "dropdown",
+                "required": true,
+                "options": [
+                  {
+                    "label": "Self",
+                    "value": 1
+                  },
+                  {
+                    "label": "Natural Or Adoptive Parent",
+                    "value": 2
+                  },
+                  {
+                    "label": "LegalGuardian",
+                    "value": 3
+                  },
+                  {
+                    "label": "Other",
+                    "value": 1000
+                  }
+                ],
+                "onChange": [
+                  {
+                    "name":"showFields",
+                    "fields": ["relationshipSpecify"],
+                    "conditions": [
+                      {
+                        "field": "relationship",
+                        "value": 1000
+                      }
+                    ]
+                  },
+                  {
+                    "name":"showFields",
+                    "fields": ["relationshipFirstName", "relationshipLastName"],
+                    "conditions": [
+                      {
+                        "type": "different",
+                        "field": "relationship",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ],
+                "help": "Please specify your relationship with the person on the social security card."
+              },
+              {
+                "name": "relationshipSpecify",
+                "label": "Specify Relationship",
+                "visible": false,
+                "help": "Please enter the signer's relationship to the applicant"
+              },
+              {
+                "name": "relationshipFirstName",
+                "label": "First Name",
+                "visible": false,
+                "help": "Please enter the signer's first name"
+              },
+              {
+                "name": "relationshipLastName",
+                "label": "Last Name",
+                "visible": false,
+                "help": "Please enter the signer's last name"
+              }
+            ]
+          },
+          {
+            "name": "communication",
+            "label": "Communication",
+            "fields": [
+              {
+                "name": "phone",
+                "label": "Phone Number",
+                "required": true,
+                "help": "Please provide your daytime phone number."
+              },
+              {
+                "name": "email",
+                "label": "Email Address",
+                "required": true,
+                "help": "Please provide your email address. This where you will receive your package."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

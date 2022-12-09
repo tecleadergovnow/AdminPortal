@@ -1,0 +1,274 @@
+{
+  "validations": {
+    "fields": {
+      "applicantSsn": {
+        "validationPattern": {
+          "pattern": "^[0-9-&]{9}$",
+          "message": "Invalid social security number"
+        }
+      },
+      "firstName": {
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "middleName": {
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "lastName": {
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "firstNameBirth": {
+        "validationRequired": {
+            "name": "conditionalRequired",
+            "condition": [
+              {
+                "field": "differentNameBirth",
+                "value": true
+              }
+            ]
+          },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "middleNameBirth": {
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "lastNameBirth": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "differentNameBirth",
+              "value": true
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "otherFirstName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "otherName",
+              "value": true
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "otherLastName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "otherName",
+              "value": true
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "motherFirstName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "motherLastName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "fatherFirstName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "fatherLastName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Your name cannot contain numeric characters and symbols"
+        }
+      },
+      "motherSsnNumber": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            },
+            {
+              "field": "motherSsnUnknown",
+              "value": true
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern": "^[0-9-&]{9}$",
+          "message": "Invalid social security number"
+        }
+      },
+      "fatherSsnNumber": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "dateBirth",
+              "value": 17,
+              "type": "dateLessThan"
+            },
+            {
+              "field": "fatherSsnUnknown",
+              "value": true
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern": "^[0-9-&]{9}$",
+          "message": "Invalid social security number"
+        }
+      },
+      "stateBirth": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "countryBirth",
+              "value": "US"
+            }
+          ]
+        }
+      },
+      "relationshipSpecify": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "relationship",
+              "value": 1000
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "Relationship cannot contain numeric characters and symbols"
+        }
+      },
+      "relationshipFirstName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "type": "different",
+              "field": "relationship",
+              "value": 1
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "The name cannot contain numeric characters and symbols"
+        }
+      },
+      "relationshipLastName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "type": "different",
+              "field": "relationship",
+              "value": 1
+            }
+          ]
+        },
+        "validationPattern": {
+          "pattern":"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð .']+$",
+          "message": "The name cannot contain numeric characters and symbols"
+        }
+      },
+      "previusCardName": {
+        "validationRequired": {
+          "name": "conditionalRequired",
+          "condition": [
+            {
+              "field": "hazDifferentPreviusCardName",
+              "value": true
+            }
+          ]
+        }
+      }
+    },
+    "messages": {
+      "required": "Required",
+      "conditionalRequired": "Required",
+      "terms": "Please accept the terms and conditions"
+    }
+  }
+}

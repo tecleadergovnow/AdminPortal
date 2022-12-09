@@ -1,0 +1,39 @@
+<div class="main-product-manager">
+  <mat-tab-group [selectedIndex]="0" (selectedTabChange)="statusChange($event)">
+    <mat-tab [label]="status.label" *ngFor="let status of statuses" [disabled]="loading">
+      <table class="mat-elevation-z8" *ngIf="applications" mat-table [dataSource]="applications">
+        <ng-container *ngFor="let defColumn of statusDataColumns" [matColumnDef]="defColumn.name">
+          <th mat-header-cell *matHeaderCellDef> {{defColumn.label}} </th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="defColumn.type === DataColumType.Text">{{element[defColumn.name]}}</span>
+            <span *ngIf="defColumn.type === DataColumType.Date">{{element[defColumn.name] | date:'mediumDate'}}</span>
+            <app-column-tags *ngIf="defColumn.type===DataColumType.Label"
+                             [tag]="element[defColumn.name]"></app-column-tags>
+            <button
+              *ngIf="defColumn.type === DataColumType.ActionList && activeStatus && activeStatus.applicationActions.length > 0"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              [matMenuTriggerData]="{application: element}">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    </mat-tab>
+
+
+    <mat-menu #menu="matMenu">
+      <ng-template matMenuContent let-application="application">
+        <ng-container *ngFor="let action of activeStatus?.applicationActions">
+          <button *ngIf="checkVisibleAction(action.action, application)" (click)="triggerApplicationAction(action, application)"
+                  mat-menu-item>
+            <span>{{action.label}}</span>
+          </button>
+        </ng-container>
+      </ng-template>
+    </mat-menu>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,13 @@
+<mat-card class="form-card" [ngClass]="{'no-radius' : index > 0}">
+  <mat-card-header>
+    <p>{{block.label}}</p>
+  </mat-card-header>
+  <mat-card-content>
+    <p *ngIf="block?.description">{{block.description}}</p>
+    <ng-container *ngFor="let field of block?.fields">
+      <app-form-field-switch *ngIf="field.visible"
+                             (fieldChange)="fieldChange($event)"
+                             [form]="form" [groupName]="groupName" [field]="field"></app-form-field-switch>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

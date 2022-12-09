@@ -1,0 +1,17 @@
+@use "_palletes" as p;
+app-application-help {
+  .help {
+    padding: 20px;
+    border-radius: 4px;
+    background: p.$primary100Color;
+    color: p.$primary100ColorContrast;
+    margin-left: 50px;
+    width: 300px;
+    h2{
+      color: p.$primaryHighColor;
+    }
+    p{
+      font-size: 17px;
+    }
+  }
+}

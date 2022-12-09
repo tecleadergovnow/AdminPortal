@@ -1,0 +1,22 @@
+@use "_palletes" as p;
+
+h1.title {
+  color: p.$primaryHighColor !important;
+  font-weight: 500;
+}
+
+.loader-backdrop {
+  background-color: p.$primary100Color;
+  color: p.$primary100ColorContrast;
+}
+
+
+.toast-success {
+  background: #82B1FF!important;
+  color: black!important;;
+}
+
+.toast-error {
+  background: #fab4b4 !important;
+  color: black!important;;
+}

@@ -1,0 +1,34 @@
+.content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-card {
+  min-width: 300px;
+  max-width: 400px;
+
+  .mat-card-header {
+    text-align: center;
+    justify-content: center;
+
+    .mat-card-header-text {
+      display: none !important;
+    }
+
+  }
+  .mat-card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+::ng-deep .mat-card-header .mat-card-header-text{
+  display: none;
+}
+
+.mat-form-field{
+  margin-top: 10px;
+}

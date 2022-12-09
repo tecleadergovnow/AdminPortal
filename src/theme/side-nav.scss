@@ -1,0 +1,40 @@
+@use "_palletes" as p;
+
+.mat-drawer {
+  background-color: #fff !important;
+  width: 250px;
+}
+
+.mat-drawer-content {
+  background-color: rgba(240, 244, 247, 0.5);
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+
+.item-active {
+  background-color: p.$toolbarBackColor !important;
+  color: p.$toolbarBackColorContrast !important;
+}
+
+.nav-item {
+  color: p.$dark-contrast;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 5px 20px;
+}
+
+.nav-item-link {
+  cursor: pointer;
+}
+
+.nav-item-link:hover {
+  background-color: p.$toolbarBackColor !important;
+  color: p.$toolbarBackColorContrast !important;
+}
+
+.group-header {
+  font-size: 12px;
+  font-weight: 500;
+}

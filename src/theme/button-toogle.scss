@@ -1,0 +1,11 @@
+@use "_palletes" as p;
+
+//mat button toogle
+
+.mat-button-toggle-group {
+  font-size: 17px;
+  .mat-button-toggle-checked {
+    background: p.$primaryColor;
+    color: p.$primaryContrastColor!important;
+  }
+}

@@ -1,0 +1,18 @@
+@use "_palletes" as p;
+
+app-home  .home .about h1 {
+  color: p.$primaryHighColor;
+}
+
+app-home {
+  .products{
+    background: p.$primaryHighColor;
+    color: p.$primaryHighColorContrast;
+
+    .mat-card{
+      h1 {
+        color: p.$primaryHighColor;
+      }
+    }
+  }
+}

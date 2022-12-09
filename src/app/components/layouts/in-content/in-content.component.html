@@ -1,0 +1,19 @@
+<div class="app-content">
+  <app-tool-bar></app-tool-bar>
+  <mat-drawer-container class="example-container">
+    <mat-drawer class="example-sidenav" mode="side" opened="true">
+      <ng-container *ngFor="let item of sideNavItems">
+        <mat-nav-list>
+          <div class="nav-item" [ngClass]="{'nav-item-link': item.link, 'item-active': item.active}" (click)="clickItem(item)">
+            <span [ngClass]="{'group-header': !item.link}" >{{item.label}}</span>
+            <mat-icon *ngIf="item.link">chevron_right</mat-icon>
+          </div>
+        </mat-nav-list>
+      </ng-container>
+    </mat-drawer>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>
+

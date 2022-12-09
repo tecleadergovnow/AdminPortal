@@ -1,0 +1,34 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-content {
+  display: block !important;
+  flex-grow: 1 !important;
+  max-width: 630px !important;
+}
+
+.step-label {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.step-description {
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.actions {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+app-application-help {
+  position: sticky;
+  top: 100px;
+  bottom: 100px;
+}

@@ -1,0 +1,27 @@
+::ng-deep .main-product-manager .mat-tab-body-wrapper {
+  margin-top: 20px !important;
+}
+
+.mat-table {
+  width: 100%;
+
+  .mat-header-cell {
+    text-align: center;
+  }
+
+  .mat-cell {
+    text-align: center;
+  }
+
+  .mat-column-apply_date {
+    text-align: left !important;
+  }
+
+  .mat-column-actions {
+    text-align: right !important;
+  }
+}
+
+.mat-row:hover {
+  background: rgba(0, 0, 0, 0.04);
+}

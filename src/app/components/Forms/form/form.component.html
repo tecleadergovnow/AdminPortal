@@ -1,0 +1,15 @@
+<ng-container *ngIf="form && contentInit" [formGroup]="form">
+  <h1 class="title">{{model.label}}</h1>
+  <h1 class="title step-label" *ngIf="titleStep">{{titleStep}}</h1>
+  <div class="form-wrapper">
+    <div class="form-content">
+      <p *ngIf=" descriptionStep" class="step-description">{{descriptionStep}}</p>
+      <app-form-step [form]="form" (fieldStepChange)="fieldFormChangeEvent($event)" [step]="activeStep"></app-form-step>
+      <div class="actions" *ngIf="activeStep">
+        <button mat-raised-button color="primary"
+                (click)="nextStep()">{{model.submitBtn }}</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+

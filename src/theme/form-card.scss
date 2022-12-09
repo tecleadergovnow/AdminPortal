@@ -1,0 +1,97 @@
+@use "_palletes" as p;
+
+
+//mat form card
+.mat-card.form-card {
+  border-radius: 0;
+  box-shadow: none !important;
+  padding: 0;
+
+  .mat-card-header {
+    padding: 25px 20px;
+    font-size: 18px !important;
+    font-weight: 500;
+    color: p.$primaryHighColorContrast;
+    background: p.$primaryHighColor;
+    border-radius: 4px 4px 0 0;
+
+    p {
+      margin: 0;
+    }
+
+    .mat-card-header-text {
+      margin: 0;
+    }
+  }
+
+  .mat-card-content {
+    padding: 20px;
+    font-size: 15px;
+    background:p.$accent100Color;
+    color: p.$accent100Contrast;
+
+    .form-field-large {
+      width: 100%;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .label {
+        width: 100%;
+      }
+
+      .field-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: flex-start;
+        width: 100%;
+        .mat-form-field {
+          max-width: 700px;
+        }
+      }
+    }
+
+    .error {
+      color: rgba(255, 0, 0, 0.67);
+    }
+  }
+}
+
+.mat-card.no-radius {
+  .mat-card-header {
+    border-radius: 0 !important;
+  }
+}
+
+.long-checkbox {
+  .error {
+    margin-left: 25px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .mat-card.form-card .mat-card-content .form-field-large {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    .label {
+      max-width: 220px;
+    }
+    .field-content{
+      max-width: 300px;
+      align-items: flex-end;
+      .mat-form-field {
+        max-width: 300px;
+      }
+    }
+  }
+}
